@@ -7,18 +7,20 @@ import com.sivalabs.mybatisdemo.mappers.UserMapper;
 
 public class UserService
 {
-	public void insertUser(User user)
+	public int insertUser(User user)
 	{
 		SqlSession sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+		int rs = 0;
 		try
 		{
 			UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-			userMapper.insertUser(user);
+			rs = userMapper.insertUser(user);
 			sqlSession.commit();
 		} finally
 		{
 			sqlSession.close();
 		}
+		return rs;
 	}
 
 	public User getUserById(Integer userId)

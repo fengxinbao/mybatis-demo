@@ -1,5 +1,11 @@
 package com.sivalabs.mybatisdemo.domain;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 public class User
 {
 	private Integer userId;
@@ -64,6 +70,5 @@ public class User
 	{
 		this.lastName = lastName;
 	}
-	
-	
+
 }

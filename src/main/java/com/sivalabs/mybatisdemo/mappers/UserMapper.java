@@ -6,7 +6,7 @@ import com.sivalabs.mybatisdemo.domain.User;
 
 public interface UserMapper
 {
-	public void insertUser(User user);
+	public int insertUser(User user);
 
 	public User getUserById(Integer userId);
 

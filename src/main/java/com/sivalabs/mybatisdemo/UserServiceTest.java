@@ -50,9 +50,10 @@ public class UserServiceTest
 		user.setEmailId("test_email_" + System.currentTimeMillis() + "@gmail.com");
 		user.setPassword("secret");
 		user.setFirstName("TestFirstName");
-		user.setLastName("TestLastName");
+//		user.setLastName("TestLastName");
 
-		userService.insertUser(user);
+		int total = userService.insertUser(user);
+		System.out.println("TOTAL: " + total);
 		Assert.assertTrue(user.getUserId() != 0);
 		User createdUser = userService.getUserById(user.getUserId());
 		Assert.assertNotNull(createdUser);
@@ -60,6 +61,7 @@ public class UserServiceTest
 		Assert.assertEquals(user.getPassword(), createdUser.getPassword());
 		Assert.assertEquals(user.getFirstName(), createdUser.getFirstName());
 		Assert.assertEquals(user.getLastName(), createdUser.getLastName());
+		testGetAllUsers();
 	}
 
 	@Test
